@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARISE STRUCTURAL & GD CONSTRUCTION</title>
+  <link rel="icon" href="images/title_logo.png" type="image/png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #e2e8f0;
+      color: #111827;
+    }
+
+    .page-shell {
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+      min-height: 100vh;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      color: #6b7280;
+      font-size: 0.98rem;
+      max-width: 52rem;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(90deg, rgba(10, 17, 36, 0.74) 0%, rgba(10, 17, 36, 0.52) 32%, rgba(10, 17, 36, 0.08) 70%, rgba(255,255,255,0) 100%);
+    }
+
+    .metric-pill {
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+
+    .about-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,24,39,0) 18%, rgba(17,24,39,0.92) 100%);
+      z-index: 0;
+    }
+
+    .about-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .guarantee-track {
+      transition: transform 0.45s ease;
+    }
+
+    .guarantee-card {
+      background: linear-gradient(180deg, #0b2453 0%, #163f7a 100%);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 30px rgba(15, 23, 42, 0.14);
+    }
+
+    .guarantee-card:nth-child(2) {
+      background: linear-gradient(180deg, #10203c 0%, #24344f 100%);
+    }
+
+    .guarantee-card:nth-child(3) {
+      background: linear-gradient(180deg, #0d2e63 0%, #315f95 100%);
+    }
+
+    .video-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.35), rgba(2, 6, 23, 0.55));
+      border-radius: 1.25rem;
+    }
+
+    .video-cover > * {
+      position: relative;
+      z-index: 1;
+    }
+    .outlined-select legend{
+      font-size: 12px;
+      font-weight: 14px;
+      padding-bottom: 3px;
+      font-weight: 600;
+    }
+
+    .tab-button.active {
+      background: #111827;
+      color: #fff;
+      border-color: #111827;
+    }
+
+    .package-option.active {
+      border-color: #f97316;
+      box-shadow: 0 10px 28px rgba(249, 115, 22, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .package-option {
+      transition: all 0.25s ease;
+    }
+
+    .floating-action {
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .floating-action:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.28);
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+ 
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* image ---------- */
+    
+
+
+/* ====== GALLERY GRID ====== */
+
+.gallery{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap:20px;
+}
+
+/* Card Style */
+.card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  min-height:200px;
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.4s ease;
+  display:block;
+}
+
+.card:hover img{
+  transform:scale(1.1);
+}
+
+/* Overlay */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.15), transparent);
+}
+
+.card-content{
+  position:absolute;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  color:#fff;
+  z-index:2;
+}
+
+.card-content h4{
+  font-size:16px;
+  font-weight:600;
+  line-height:1.3;
+}
+
+.card-content span{
+  font-size:12px;
+  opacity:0.9;
+  display:block;
+  margin-top:4px;
+  line-height:1.4;
+}
+
+/* Custom sizes */
+.card.large{
+  grid-row: span 2;
+}
+
+.card.wide{
+  grid-column: span 2;
+}
+
+        .container{
+          margin-top: 20px;
+        }
+       
+
+        .construction-section {
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+        }
+
+        .content-left {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+
+
+        .content-left .subtitle {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        .check-icon {
+            width: 15px;
+            height: 15px;
+            background-color: #f97316;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .check-icon::after {
+            content: "✓";
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f97316;
+            color: #333333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+  
+
+
+        .content-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            /* grid-template-rows: 1fr 0.6fr 0.6fr; */
+            gap: 12px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .image-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .img-1 {
+            grid-row: span 2;
+            border-radius: 40px 40px 40px 12px;
+        }
+
+        .img-2 {
+            border-radius: 40px 40px 12px 40px;
+        }
+
+        .img-3 {
+            border-radius: 12px 40px 40px 40px;
+        }
+
+        .img-4 {
+            border-radius: 12px 40px 40px 40px;
+        }
+
+
+                body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            color: #111111;
+        }
+
+        .blueprint-container {
+            background: #e9ecef;
+            border-radius: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+        }
+
+        .list-item {
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-outline {
+            border: 2px solid #111111;
+            padding: 0.9rem 3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+            background: white;
+        }
+
+        .btn-outline:hover {
+            background-color: #111111;
+            color: white;
+        }
+
+        .presentation-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            margin-top: 3rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+
+       @media (max-width: 576px) {
+           
+
+
+            .content-left .subtitle {
+                font-size: 14px;
+            }
+
+            .features-list li {
+                font-size: 13px;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                gap: 8px;
+            }
+
+            .img-1 {
+                grid-row: span 2;
+                border-radius: 24px 24px 24px 8px;
+            }
+
+            .img-2 {
+                border-radius: 24px 24px 8px 24px;
+            }
+
+            .img-3 {
+                border-radius: 8px 24px 24px 24px;
+            }
+
+            .img-4 {
+                border-radius: 8px 24px 24px 24px;
+            }
+
+            .read-more-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+        }
+
+    @media (max-width: 767px) {
+      .hero-overlay {
+        background: linear-gradient(180deg, rgba(10, 17, 36, 0.7) 0%, rgba(10, 17, 36, 0.5) 34%, rgba(10,17,36,0.2) 60%, rgba(10,17,36,0.45) 100%);
+      }
+      .logo_mob{
+        width: 120px !important;
+        height: auto !important;
+      }
+      
+    }
+
+    /* for image gallery */
+    @media(max-width:992px){
+
+      .construction-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content-right {
+                width: 100%;
+            }
+
+            .image-grid {
+                max-width: 100%;
+            }
+
+  .gallery{
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+    gap:16px;
+  }
+
+  .card.large{
+    grid-row: span 1;
+  }
+
+  .card.wide{
+    grid-column: span 2;
+  }
+}
+    @media(max-width:600px){
+
+
+  .gallery{
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap:14px;
+  }
+
+  .card,
+  .card.large,
+  .card.wide{
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height:220px;
+  }
+
+  .card-content{
+    bottom:12px;
+    left:12px;
+    right:12px;
+  }
+
+  .card-content h4{
+    font-size:15px;
+  }
+
+  .card-content span{
+    font-size:11px;
+  }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="#home" class="flex items-center gap-3">
+          <div>
+            <img src="images/logo.png" alt="logo" style=" height: 57px;width: 150px;margin-left: 10px;" class="logo_mob">
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-7 md:flex">
+          <a href="#why-us" class="text-sm font-medium text-slate-700 transition hover:text-orange-500">About us</a>
+          <a href="#guarantees" class="text-sm font-medium text-slate-700 transition hover:text-orange-500">Guarantees</a>
+          <a href="#quality" class="text-sm font-medium text-slate-700 transition hover:text-orange-500">Quality</a>
+          <a href="#packages" class="text-sm font-medium text-slate-700 transition hover:text-orange-500">Packages</a>
+          <a href="#contact" class="text-sm font-medium text-slate-700 transition hover:text-orange-500">Contact</a>
+        </nav>
+
+        <div class="hidden items-center gap-3 md:flex">
+          <a href="tel:+919481779995" class="text-sm font-semibold text-slate-700">+91 94817 79995</a>
+          <a href="#contact" class="rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Let's Build</a>
+        </div>
+
+        <button id="menuBtn" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-800 md:hidden" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden">
+        <div class="flex flex-col gap-3">
+          <a href="#why-us" class="mobile-link text-sm font-medium text-slate-700">About us</a>
+          <a href="#guarantees" class="mobile-link text-sm font-medium text-slate-700">Guarantees</a>
+          <a href="#quality" class="mobile-link text-sm font-medium text-slate-700">Quality</a>
+          <a href="#packages" class="mobile-link text-sm font-medium text-slate-700">Packages</a>
+          <a href="#contact" class="mobile-link text-sm font-medium text-slate-700">Contact</a>
+          <a href="tel:+919481779995" class="text-sm font-semibold text-orange-600">Call +91 94817 79995</a>
+          <a href="tel:+918073054473" class="text-sm font-semibold text-orange-600">+91 80730 54473</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative mx-auto grid min-h-[620px] max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-16">
+          <div class="max-w-2xl text-white fade-in-up">
+            <div class="mb-4 inline-flex rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-white ring-1 ring-white/20">Trusted by 300+ homeowners across cities</div>
+            <h1 class="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">Construct Your <span class="text-orange-400">Dream Home</span> with GD Construction</h1>
+            <p class="mt-5 max-w-xl text-base leading-7 text-slate-200 sm:text-lg">Experience end-to-end home construction with assured quality checks, transparent pricing, verified contractors, and on-time delivery.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <div class="metric-pill rounded-full px-4 py-2 text-sm font-semibold">300+ Homes</div>
+              <div class="metric-pill rounded-full px-4 py-2 text-sm font-semibold">On-Time Delivery</div>
+            </div>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#contact" class="rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">Start Your Project</a>
+              <a href="#packages" class="rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20">View Packages</a>
+            </div>
+          </div>
+
+          <div class="hidden md:block fade-in-up">
+            <div class="glass-card rounded-2xl p-6 sm:p-7">
+              <div class="mb-5">
+                <h2 class="text-2xl font-bold text-slate-900">Talk to Our Expert</h2>
+                <p class="mt-1 text-sm text-slate-500">Share your requirements and get a free consultation.</p>
+              </div>
+
+
+    <form id="heroForm" class="space-y-4" action="https://formsubmit.co/arisestructuralconsultancy@gmail.com" method="POST">
+    
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Consultation Request">
+
+    <input type="text" name="name" placeholder="Name" class="w-full rounded-xl border border-black px-4 py-3 text-sm outline-none transition focus:border-orange-400" required />
+    
+    <div class="flex rounded-xl border border-black overflow-hidden">
+        <span class="flex items-center bg-slate-50 px-4 text-sm font-medium text-slate-600">+91</span>
+        <input type="tel" name="phone" placeholder="Phone Number" class="w-full px-4 py-3 text-sm outline-none" required />
+    </div>
+    
+    <fieldset class="outlined-select">
+        <legend>Location of your Plot - City*</legend>
+        <select name="location" class="w-full rounded-xl border border-black px-4 py-3 text-sm outline-none transition focus:border-orange-400" required>
+            <option value="" disabled selected>Select a location</option>
+            <option value="Bengaluru North (includes Yelahanka)">Bengaluru North (includes Yelahanka)</option>
+            <option value="Bengaluru South (includes Kengeri)">Bengaluru South (includes Kengeri)</option>
+            <option value="Commercial Construction">Commercial Construction</option>
+            <option value="Bengaluru East (includes Krishnaraja Pura)">Bengaluru East (includes Krishnaraja Pura)</option>
+            <option value="Anekal">Anekal</option>
+            <option value="Bengaluru North">Bengaluru North</option>
+            <option value="Devanahalli">Devanahalli</option>
+            <option value="Doddaballapura">Doddaballapura</option>
+            <option value="Hosakote">Hosakote</option>
+            <option value="Nelamangala">Nelamangala</option>
+        </select>
+    </fieldset>
+    
+    <button type="submit" id="submitBtn" class="w-full rounded-xl bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">Book Free Consultation</button>
+    <p class="text-xs leading-5 text-slate-500">By proceeding, you agree to receive project-related communication from our team.</p>
+</form> 
+
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-us" class="px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="fade-in-up">
+            <h2 class="section-title">Why <span style="color: #f97316;">GD</span> CONSTRUCTION  is the best Construction Company in Bangalore?</h2>
+            <p class="section-subtitle mt-3">Discover tailored construction services with precision, value, and transparency—designed for modern homeowners and businesses.</p>
+          </div>
+
+           <div class="container">
+        <section class="construction-section">
+            <div class="content-left">
+                <h1 class="section-title fade-in-up">Welcome to <span style="color: #f97316;">Arise</span> Structural & GD Construction</h1>
+                <p class="subtitle fade-in-up">At <b>Arise Structural & GD Construction</b>, our experienced engineers turn accurate blueprints into lasting landmarks. We deliver cost-effective, safety-focused construction solutions backed by dedicated on-site support. From the initial design to timely handover, we execute your vision flawlessly and reliably.</p>
+                <ul class="features-list">
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Expert Structural Engineering:</strong> Our experienced engineers provide highly accurate drawings and blueprints for a flawless build.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Quality & Safety First:</strong> We deliver strict safety-focused construction backed by dedicated on-site technical support.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Cost-Effective & On-Time:</strong> Get reliable, budget-friendly construction solutions without ever compromising your project deadlines.</span>
+                    </li>
+                </ul>
+               <a href="#contact" style="text-decoration: none;"> <button class="read-more-btn">
+                    Explore More
+                </button></a>
+            </div>
+            <div class="content-right">
+                <div class="image-grid">
+                    <div class="image-item img-1 fade-in-up">
+                      <img src="images/home-img1.png" alt="Building construction">
+                       
+                    </div>
+                    <div class="image-item img-2 fade-in-up"> <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=800&fit=crop" alt="Construction site with cranes">
+                    </div>
+                    <div class="image-item img-3 fade-in-up">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop" alt="Modern construction">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <article class="about-card relative min-h-[360px] overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 p-6 fade-in-up" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80'); background-size:cover; background-position:center;">
+              <div class="absolute inset-0"></div>
+              <div class="flex h-full flex-col justify-end text-white">
+                <span class="mb-3 inline-flex w-fit rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-[0.2em] uppercase text-white/90">Residential</span>
+                <h3 class="text-2xl font-bold">Home Construction</h3>
+                <p class="mt-2 text-sm text-white/85">From concept to completion, we build durable, elegant homes with managed timelines and tech-enabled quality assurance.</p>
+                <div class="mt-4 text-sm text-white/80">Cost: <span class="font-semibold text-white">₹1,949 / sq ft onwards</span></div>
+                <div class="mt-4">
+                  <button class="about-toggle rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900" data-target="about1">Explore more</button>
+                </div>
+                <div id="about1" class="mt-4 hidden rounded-2xl bg-white/10 p-4 text-sm leading-6 text-white/90 backdrop-blur-sm">
+                  Get end-to-end support covering design, approvals, materials, site execution, and milestone-based tracking from one trusted team.
+                </div>
+              </div>
+            </article>
+
+            <article class="about-card relative min-h-[360px] overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 p-6 fade-in-up" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80'); background-size:cover; background-position:center;">
+              <div class="absolute inset-0"></div>
+              <div class="flex h-full flex-col justify-end text-white">
+                <span class="mb-3 inline-flex w-fit rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-[0.2em] uppercase text-white/90">Commercial</span>
+                <h3 class="text-2xl font-bold">Commercial Construction</h3>
+                <p class="mt-2 text-sm text-white/85">Build high-performance office, retail, and mixed-use spaces with transparent cost planning and scalable execution.</p>
+                <div class="mt-4 text-sm text-white/80">Projects: <span class="font-semibold text-white">Fast-paced, tech-driven builds</span></div>
+                <div class="mt-4">
+                  <button class="about-toggle rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-white" data-target="about2">Explore more</button>
+                </div>
+                <div id="about2" class="mt-4 hidden rounded-2xl bg-white/10 p-4 text-sm leading-6 text-white/90 backdrop-blur-sm">
+                  We streamline planning, procurement, and execution to help businesses launch sooner without compromising structural quality.
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="guarantees" class="px-4 py-8 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end fade-in-up">
+            <div>
+              <h2 class="section-title">Guarantees Every Homeowner Deserves</h2>
+              <p class="section-subtitle mt-3">Built to remove uncertainty from construction and give you confidence at every milestone.</p>
+            </div>
+            <div class="flex gap-3">
+              <button id="prevGuarantee" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-orange-500 transition hover:bg-orange-100" aria-label="Previous">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button id="nextGuarantee" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-orange-500 transition hover:bg-orange-100" aria-label="Next">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-10 overflow-hidden">
+            <div id="guaranteeTrack" class="guarantee-track flex gap-5">
+              <article class="guarantee-card min-w-full rounded-3xl p-6 sm:min-w-[calc(50%-10px)] lg:min-w-[calc(33.333%-14px)] fade-in-up">
+                <div class="flex h-full flex-col justify-between gap-6">
+                  <div>
+                    <h3 class="text-3xl font-bold leading-tight">Get 100% Accurate Quotes</h3>
+                    <p class="mt-4 text-sm leading-6 text-white/80">Real-time estimation with detailed specifications so you know exactly what you're paying for before work begins.</p>
+                  </div>
+                  <div class="rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
+                    <div class="rounded-[2rem] bg-white p-4 text-slate-900 shadow-lg">
+                      <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Digital Estimate</div>
+                      <div class="mt-3 space-y-2 text-sm">
+                        <div class="flex justify-between"><span>Foundation</span><span>₹3.4L</span></div>
+                        <div class="flex justify-between"><span>Structure</span><span>₹8.8L</span></div>
+                        <div class="flex justify-between"><span>Finishes</span><span>₹4.1L</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="guarantee-card min-w-full rounded-3xl p-6 sm:min-w-[calc(50%-10px)] lg:min-w-[calc(33.333%-14px)] fade-in-up">
+                <div class="flex h-full flex-col justify-between gap-6">
+                  <div>
+                    <h3 class="text-3xl font-bold leading-tight">Transparent and secure payments for contractors.</h3>
+                    <p class="mt-4 text-sm leading-6 text-white/80">Milestone-based payment release keeps your project protected and ensures execution quality at every phase.</p>
+                  </div>
+                  <div class="flex h-44 items-center justify-center rounded-3xl bg-white/10 backdrop-blur-sm">
+                    <div class="grid h-32 w-32 place-items-center rounded-[2rem] border border-white/20 bg-slate-800/60 shadow-2xl">
+                      <div class="grid h-16 w-16 place-items-center rounded-full bg-white text-2xl font-black text-slate-900">₹</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="guarantee-card min-w-full rounded-3xl p-6 sm:min-w-[calc(50%-10px)] lg:min-w-[calc(33.333%-14px)] fade-in-up">
+                <div class="flex h-full flex-col justify-between gap-6">
+                  <div>
+                    <h3 class="text-3xl font-bold leading-tight">Your Timeline is Our Deadline</h3>
+                    <p class="mt-4 text-sm leading-6 text-white/80">Our scheduling engine and site monitoring processes are designed to help keep your delivery date on track.</p>
+                  </div>
+                  <div class="rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
+                    <div class="rounded-3xl bg-white p-5 text-slate-900 shadow-lg">
+                      <div class="mb-3 flex items-center justify-between text-sm font-semibold"><span>Project Calendar</span><span class="text-orange-500">On Time</span></div>
+                      <div class="grid grid-cols-7 gap-2 text-center text-xs text-slate-500">
+                        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                      </div>
+                      <div class="mt-2 grid grid-cols-7 gap-2 text-center text-sm">
+                        <span class="rounded-lg bg-slate-100 py-2">1</span>
+                        <span class="rounded-lg bg-slate-100 py-2">2</span>
+                        <span class="rounded-lg bg-orange-100 py-2 text-orange-600">3</span>
+                        <span class="rounded-lg bg-slate-100 py-2">4</span>
+                        <span class="rounded-lg bg-slate-100 py-2">5</span>
+                        <span class="rounded-lg bg-slate-100 py-2">6</span>
+                        <span class="rounded-lg bg-slate-100 py-2">7</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quality" class="px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="fade-in-up">
+         <main class="flex-grow max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-32 items-center">
+        
+        <!-- Info Column -->
+        <div class="flex flex-col">
+            <h2 class="section-title">Precision Structural Drafting Services</h2>
+            
+            <div class="space-y-1 mt-5 lg:mt-5" >
+              <ul class="features-list">
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Structural Design & Analysis:</strong> Comprehensive RCC and steel structural designs engineered for maximum stability and safety.</span>
+                         
+                    </li>
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Detailed Structural Drawings:</strong> Accurate foundation designs and complete blueprints for projects ranging from G+1 to G+10.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Residential Construction:</strong> End-to-end building solutions turning your dream home into a flawless, long-lasting reality.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Commercial Construction:</strong> Tailored, high-quality construction services designed for state-of-the-art business spaces.</span>
+                    </li>
+                     
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Inspections & Certifications:</strong> Rigorous site audits and official structural stability certificates for compliance and peace of mind.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Renovation & Remodeling:</strong> Expert structural upgrades and modern remodeling to breathe new life into your existing spaces.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon fade-in-up"></span>
+                        <span class="fade-in-up"><strong>Expert Building Consultation:</strong> Professional guidance on structural integrity, project planning, and cost-effective execution.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Image Column -->
+        <div class="blueprint-container overflow-hidden">
+            <img src="images/stru-1.png" 
+                 alt="House Plan Drawing"
+                style=" background-size: cover;width: 100vh;height: auto;">
+        </div>
+    </main>
+  </div>
+
+      <div class="mt-8 lg:mt-5 text-center fade-in-up">
+        <a href="#contact" style="text-decoration: none;"> 
+             <button class="btn-outline uppercase text-sm font-bold tracking-widest">
+           <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                <path d="M3 22v-20l18 10-18 10z" />
+            </svg>
+            Explore more
+        </button>
+        </a>
+          </div>
+
+  <div class="section-title fade-in-up" >
+  <h2 style="margin: 20px 0px 8px 0px; ">Gallery</h2>
+  <p style="font-size: 0.98rem;color: #6b7280;font-weight: normal;margin-bottom: 30px;">Experience the quality, design, and lifestyle that define our spaces.</p>
+</div>
+
+<div class="gallery  fade-in-up">
+
+  <div class="card wide">
+    <img src="images/str-2.png" alt="This Miami Beach">
+    <div class="card-content">
+    </div>
+  </div>
+
+  <div class="card large">
+    <img src="images/st-1.jpg" alt="Eden Villas">
+    <div class="card-content">
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/g-3.png" alt="Apartments Opens">
+    <div class="card-content">
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/g1.png" alt="Locanda Vivaldi">
+    <div class="card-content">
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/g-2.png" alt="Homes Aqua">
+    <div class="card-content">
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/g-4.png" alt="Alba Cave Villa">
+    <div class="card-content">
+    </div>
+  </div>
+
+</div>
+
+          <div class="mt-8 video-cover relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-cover bg-center p-8 sm:p-10 fade-in-up" style="background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=80'); min-height: 360px;">
+            <div class="mx-auto flex h-full max-w-3xl flex-col items-center justify-center text-center text-white">
+              <div class="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-white/85">UNCOMPROMISING STANDARDS</div>
+              <h3 class="mt-6 text-2xl font-bold sm:text-3xl">GD CONSTRUCTION has performed 1.3 Million quality checks for 300+ homes across cities.</h3>
+              <p class="mt-4 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">Discover our rigorous quality control process. Watch how our expert engineers and builders turn precision blueprints into enduring landmarks.</p>
+              <button id="playVideoBtn" class="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:scale-[1.02]">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-orange-500 text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-0.5" viewBox="0 0 20 20" fill="currentColor"><path d="M6.3 4.84A1 1 0 005 5.7v8.6a1 1 0 001.3.95l8.6-4.3a1 1 0 000-1.8l-8.6-4.3z" /></svg>
+                </span>
+                Watch Quality Video
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-4 pb-6 sm:px-6 lg:px-8" style="display: none;">
+        <div class="mx-auto max-w-6xl" >
+          <div class="overflow-hidden rounded-[1.75rem] bg-gradient-to-r from-slate-900 via-blue-950 to-blue-800 p-8 text-white fade-in-up">
+            <div class="grid items-center gap-6 md:grid-cols-[1.1fr_0.9fr]">
+              <div>
+                <button id="scrollToPackages" class="mt-6 rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">Calculate Cost Instantly</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="packages" class="px-4 py-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="fade-in-up">
+            <h2 class="section-title">Construction Packages in Bangalore</h2>
+            <p class="section-subtitle mt-3">Choose your ideal package and instantly preview inclusions for a smoother planning process.</p>
+          </div>
+
+          <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4" id="packageGrid"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl">
+          <div class="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-10 fade-in-up">
+            <div class="text-center">
+              <div class="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">Interested? Connect With Us</div>
+              <h2 class="mt-3 text-3xl font-bold text-slate-900">Let’s discuss your dream project</h2>
+              <p class="mt-3 text-sm leading-6 text-slate-500">Fill in your details and our experts will reach out with package suggestions, budget guidance, and next steps.</p>
+            </div>
+
+  
+
+<form id="contactForm" class="mt-8 grid gap-4 md:grid-cols-2" action="https://formsubmit.co/arisestructuralconsultancy@gmail.com" method="POST">
+    
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Consultation Request">
+    
+    <input type="text" name="name" placeholder="Full Name" class="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-500" required />
+    
+    <input type="tel" name="phone" placeholder="Mobile Number" class="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-500" required />
+    
+    <input type="email" name="email" placeholder="Email Address" class="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-500 md:col-span-1" required />
+    
+    <input type="text" name="city" placeholder="Project City" class="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-500 md:col-span-1" />
+    
+    <textarea name="message" placeholder="Tell us about your requirement" rows="5" class="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-green-500 md:col-span-2"></textarea>
+    
+    <div class="md:col-span-2 flex justify-center">
+        <button type="submit" class="rounded-xl px-8 py-3 text-sm font-semibold text-white transition" style="background-color: #f97316;color: white;">Send Enquiry</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-black text-white">
+      <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div class="border-b border-white/10 pb-8">
+          <div class="text-lg font-bold tracking-[0.3em] text-white/90 uppercase"> <a href="#home" style="text-decoration: none;"><img src="images/footer_logo.png" alt="logo" style=" height: 57px;width: 150px;margin-left: 10px;" class="logo_mob"></a></div>
+        </div>
+        <div class="grid gap-10 py-10 md:grid-cols-2 lg:grid-cols-5">
+          <div class="lg:col-span-2">
+            <div class="mb-4 text-3xl font-thin tracking-[0.2em] text-white/90">Arise Structural & GD Construction</div>
+            <p class="max-w-md text-sm leading-7 text-white/60">We deliver premium residential and commercial construction solutions with accountability, quality checks, and end-to-end coordination.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">Company</h3>
+            <ul class="mt-4 space-y-3 text-sm text-white/60">
+              <li><a href="#why-us" class="hover:text-white">About Us</a></li>
+              <li><a href="#packages" class="hover:text-white">Pricing</a></li>
+              <li><a href="#contact" class="hover:text-white">Careers</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">Resources</h3>
+            <ul class="mt-4 space-y-3 text-sm text-white/60">
+              <li><a href="#quality" class="hover:text-white">Tech & Quality</a></li>
+              <li><a href="#guarantees" class="hover:text-white">Guarantees</a></li>
+              <li><a href="#contact" class="hover:text-white">Support</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">Address</h3>
+            <p class="mt-4 text-sm leading-7 text-white/60">Arise Structural & GD Construction, 10<sup>th</sup> floor Delta block, Sigma Tech Park, Whitefield, Bengaluru, Karnataka 560066, India</p>
+            <div class="mt-4 text-sm text-white/60"><a href="tel:919481779995" style="text-decoration: none;">+91 94817 79995</a></div>
+            <div class="mt-1 text-sm text-white/60"><a href="tel7676757004"  style="text-decoration: none;">+91 76767 57004</a></div>
+            <div class="mt-1 text-sm text-white/60"><a class="mt-4 text-sm text-white/60" href="mailto:arisestructuralconsultancy@gmial.com" style="text-decoration: underline;">arisestructuralconsultancy@gmial.com</a></div>
+
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 text-xs text-white/40">© <script>document.write(new Date().getFullYear())</script> Arise structural and GD considerations. <span style="font-size: 9px;">Builted by <a href="tel:916363194363" style="color: orange;text-decoration: none;">Akshay</a></span></div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="fixed bottom-6 right-4 z-50 flex flex-col items-center gap-3 sm:right-6">
+    <a href="https://wa.me/919481779995" target="_blank" rel="noopener noreferrer" class="floating-action grid h-14 w-14 place-items-center rounded-full bg-green-500 text-white" aria-label="WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.86 11.86 0 0012.07 0C5.5 0 .14 5.36.14 11.93c0 2.1.55 4.15 1.6 5.95L0 24l6.3-1.65a11.9 11.9 0 005.77 1.47h.01c6.57 0 11.93-5.36 11.93-11.93 0-3.19-1.24-6.18-3.49-8.41zM12.08 21.8h-.01a9.85 9.85 0 01-5.01-1.37l-.36-.21-3.74.98 1-3.65-.24-.38a9.84 9.84 0 01-1.52-5.24c0-5.45 4.43-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.9 6.99c0 5.45-4.44 9.88-9.9 9.88zm5.42-7.36c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.38-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.43-.08-.13-.27-.2-.57-.35z"/></svg>
+    </a>
+    <button id="chatBtn" class="floating-action grid h-14 w-14 place-items-center rounded-full bg-orange-500 text-white" aria-label="Open chat" style="display: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10h8M8 14h5m7-2c0 4.418-3.582 8-8 8a8.96 8.96 0 01-4.126-.995L3 20l1.177-3.53A7.963 7.963 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8z" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="videoModal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-slate-950/85 p-4">
+    <div class="relative w-full max-w-4xl overflow-hidden rounded-[1.5rem] bg-black shadow-2xl">
+      <button id="closeVideoBtn" class="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-white/90 text-slate-900" aria-label="Close video">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      <video id="qualityVideo" class="aspect-video w-full bg-black" controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=80">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <div id="chatPanel" class="fixed bottom-24 right-4 z-[60] hidden w-[min(92vw,360px)] rounded-[1.5rem] border border-slate-200 bg-white shadow-2xl sm:right-6">
+    <div class="rounded-t-[1.5rem] bg-slate-900 px-5 py-4 text-white">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-sm font-semibold">Project Support</div>
+          <div class="text-xs text-white/70">Usually replies in a few minutes</div>
+        </div>
+        <button id="closeChatBtn" class="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-white" aria-label="Close chat">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="space-y-3 p-4 text-sm">
+      <div class="max-w-[85%] rounded-2xl rounded-bl-md bg-slate-100 px-4 py-3 text-slate-700">Hi! Looking to build a home or compare packages?</div>
+      <div class="ml-auto max-w-[85%] rounded-2xl rounded-br-md bg-orange-500 px-4 py-3 text-white">I want an estimate for a 30x40 home.</div>
+      <div class="max-w-[85%] rounded-2xl rounded-bl-md bg-slate-100 px-4 py-3 text-slate-700">Great choice. Use the package section below or send us an enquiry and we’ll help you plan the budget.</div>
+    </div>
+    <div class="border-t border-slate-200 p-4">
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="w-full rounded-xl bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">Get Free Consultation</button>
+    </div>
+  </div>
+
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const aboutToggles = document.querySelectorAll('.about-toggle');
+    const guaranteeTrack = document.getElementById('guaranteeTrack');
+    const prevGuarantee = document.getElementById('prevGuarantee');
+    const nextGuarantee = document.getElementById('nextGuarantee');
+    const playVideoBtn = document.getElementById('playVideoBtn');
+    const closeVideoBtn = document.getElementById('closeVideoBtn');
+    const videoModal = document.getElementById('videoModal');
+    const qualityVideo = document.getElementById('qualityVideo');
+    const chatBtn = document.getElementById('chatBtn');
+    const chatPanel = document.getElementById('chatPanel');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const packageGrid = document.getElementById('packageGrid');
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const scrollToPackages = document.getElementById('scrollToPackages');
+    const heroForm = document.getElementById('heroForm');
+    const contactForm = document.getElementById('contactForm');
+
+    let currentGuarantee = 0;
+    const totalGuarantees = 3;
+    let guaranteeInterval;
+
+    const packageData = {
+      bangalore: [
+        {
+          name: 'Standard',
+          price: '₹1779 per/sqft',
+          desc: 'Ideal for efficient, value-first home construction.',
+          features: ['Branded steel and cement', 'Teak wood main door', 'Vertrified tiles', 'CERA brand bathroom fittings', 'Anchor switches and wires']
+        },
+        {
+          name: 'Classic',
+          price: '1949 per/sqft',
+          popular: 'Popular',
+          desc: 'Balanced package with better finishes and fixtures.',
+          features: ['Premium teak main door', 'Jaquar brand bathroom fittings', 'Finolex wires, GM switches', 'High 10.6 feet ceilings', 'Granite flooring']
+        },
+        {
+          name: 'Premium',
+          price: '2199 per/sqft',
+          desc: 'High-end selections for modern families.',
+          features: ['UltraTech cement JSW steel', 'Luxury teak main door', 'Marble flooring', 'Legrand switches Havells wires', 'Stainless steel glass railing']
+        },
+        {
+          name: 'Elite',
+          price: '2399&nbsp;per/sqft',
+          desc: 'Luxury package for standout homes with refined detailing.',
+          features: ['Elite luxury bathroom fittings', 'Schneider or Luxury switches', 'Royal emulsion interior paint', 'Veneer finish internal doors', 'Marble flooring / Onyx']
+        }
+      ],
+     };
+
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('hidden');
+    }
+
+    menuBtn.addEventListener('click', toggleMobileMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    aboutToggles.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        const isHidden = target.classList.contains('hidden');
+        target.classList.toggle('hidden');
+        button.textContent = isHidden ? 'Show less' : 'Explore more';
+      });
+    });
+
+    function getVisibleGuaranteeCards() {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 640) return 2;
+      return 1;
+    }
+
+    function updateGuaranteeSlider() {
+      const visible = getVisibleGuaranteeCards();
+      const maxIndex = Math.max(0, totalGuarantees - visible);
+      if (currentGuarantee > maxIndex) currentGuarantee = 0;
+      const shift = 100 / visible;
+      guaranteeTrack.style.transform = `translateX(-${currentGuarantee * shift}%)`;
+    }
+
+    function nextGuaranteeSlide() {
+      const visible = getVisibleGuaranteeCards();
+      const maxIndex = Math.max(0, totalGuarantees - visible);
+      currentGuarantee = currentGuarantee >= maxIndex ? 0 : currentGuarantee + 1;
+      updateGuaranteeSlider();
+    }
+
+    function prevGuaranteeSlide() {
+      const visible = getVisibleGuaranteeCards();
+      const maxIndex = Math.max(0, totalGuarantees - visible);
+      currentGuarantee = currentGuarantee <= 0 ? maxIndex : currentGuarantee - 1;
+      updateGuaranteeSlider();
+    }
+
+    prevGuarantee.addEventListener('click', () => {
+      prevGuaranteeSlide();
+      restartGuaranteeAutoplay();
+    });
+
+    nextGuarantee.addEventListener('click', () => {
+      nextGuaranteeSlide();
+      restartGuaranteeAutoplay();
+    });
+
+    function startGuaranteeAutoplay() {
+      guaranteeInterval = setInterval(nextGuaranteeSlide, 3500);
+    }
+
+    function restartGuaranteeAutoplay() {
+      clearInterval(guaranteeInterval);
+      startGuaranteeAutoplay();
+    }
+
+    function openVideoModal() {
+      videoModal.classList.remove('hidden');
+      videoModal.classList.add('flex');
+      qualityVideo.currentTime = 0;
+      qualityVideo.play().catch(() => {});
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal() {
+      videoModal.classList.add('hidden');
+      videoModal.classList.remove('flex');
+      qualityVideo.pause();
+      document.body.style.overflow = '';
+    }
+
+    playVideoBtn.addEventListener('click', openVideoModal);
+    closeVideoBtn.addEventListener('click', closeVideoModal);
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) closeVideoModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeVideoModal();
+        chatPanel.classList.add('hidden');
+      }
+    });
+
+    chatBtn.addEventListener('click', () => chatPanel.classList.toggle('hidden'));
+    closeChatBtn.addEventListener('click', () => chatPanel.classList.add('hidden'));
+
+ 
+    function renderPackages(tab = 'bangalore') {
+      packageGrid.innerHTML = packageData[tab].map((pkg, index) => `
+        <article class="package-option ${index === 1 ? 'active' : ''} rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <div class="text-lg font-bold text-slate-900">${pkg.name}</div>
+              <div class="mt-1 text-xl font-extrabold text-slate-900">${pkg.price}</div>
+            </div>
+            
+            ${pkg.popular ? `<span class="rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600">${pkg.popular}</span>` : ''}
+            
+          </div>
+          <p class="mt-4 text-sm leading-6 text-slate-500">${pkg.desc}</p>
+          <ul class="mt-5 space-y-3 text-sm text-slate-700">
+            ${pkg.features.map(feature => `<li class="flex gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500"></span><span>${feature}</span></li>`).join('')}
+          </ul>
+          <a href="#contact" style="text-decoration:none;"><button class="mt-6 w-full rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-500">Get Detailed Quote</button></a>
+        </article>
+      `).join('');
+    }
+
+    scrollToPackages.addEventListener('click', () => {
+      document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    function showMessage(message) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed left-1/2 top-5 z-[80] -translate-x-1/2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-2xl';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+      }, 1800);
+      setTimeout(() => toast.remove(), 2200);
+    }
+
+    // ==========================================
+    // UPDATED HERO FORM SUBMISSION LOGIC
+    // ==========================================
+
+    
+    if (heroForm) {
+      heroForm.addEventListener('submit', (e) => {
+        
+        // ⚠️ Put // in front of this temporarily if you need to trigger the CAPTCHA to activate the client's email
+        e.preventDefault(); 
+        
+        const form = e.target;
+        
+        // --- GENERATE UNIQUE SUBJECT LINE ---
+        const subjectInput = form.querySelector('input[name="_subject"]');
+        const userName = form.querySelector('input[name="name"]').value;
+        const uniqueId = Math.floor(1000 + Math.random() * 9000); 
+        
+        subjectInput.value = `New Request #${uniqueId} from ${userName}`;
+        // ----------------------------------------------
+
+        const formData = new FormData(form);
+        const submitBtn = document.getElementById('submitBtn'); 
+        const originalBtnText = submitBtn.innerText;
+
+        submitBtn.innerText = "Booking...";
+        submitBtn.disabled = true;
+
+   // --- THE INVISIBLE DUAL FETCH (2 EMAILS) ---
+         const email1 = "https://formsubmit.co/arisestructuralconsultancy@gmail.com";
+        const email2 = "https://formsubmit.co/jay.prakash00110011@gmail.com"; 
+
+        const request1 = fetch(email1, {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        const request2 = fetch(email2, {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        // Fire both at the exact same time
+        Promise.all([request1, request2])
+        .then(() => {
+            form.reset();
+            showMessage('Thank you! Consultation booked successfully.');
+        })
+        .catch(() => {
+            form.reset();
+            showMessage('Thank you! Consultation booked successfully.');
+        })
+        .finally(() => {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        });
+      });
+    }
+
+
+    // ==========================================
+    // ==========================================
+    // END OF UPDATED HERO FORM SUBMISSION LOGIC
+    // ==========================================
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        
+        e.preventDefault(); // Stop the redirect to FormSubmit's page!
+        
+        const form = e.target;
+        
+        // --- GENERATE UNIQUE SUBJECT LINE ---
+        const subjectInput = form.querySelector('input[name="_subject"]');
+        const nameInput = form.querySelector('input[name="name"]');
+        
+        // Grab the name if it exists, otherwise use 'User'
+        const userName = nameInput ? nameInput.value : 'User'; 
+        const uniqueId = Math.floor(1000 + Math.random() * 9000); 
+        
+        if (subjectInput) {
+            subjectInput.value = `New Contact Request #${uniqueId} from ${userName}`;
+        }
+        // ------------------------------------
+
+        const formData = new FormData(form);
+        const submitBtn = form.querySelector('button[type="submit"]'); 
+        const originalBtnText = submitBtn ? submitBtn.innerText : 'Send';
+
+        if (submitBtn) {
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+        }
+
+        // --- THE INVISIBLE DUAL FETCH (2 EMAILS) ---
+         const email1 = "https://formsubmit.co/arisestructuralconsultancy@gmail.com";
+        const email2 = "https://formsubmit.co/jay.prakash00110011@gmail.com"; 
+
+        const request1 = fetch(email1, {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        const request2 = fetch(email2, {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        // Fire both at the exact same time
+        Promise.all([request1, request2])
+        .then(() => {
+            form.reset();
+            showMessage('Thanks! Our team will contact you soon.');
+        })
+        .catch(() => {
+            // Force the success message even if CORS throws a fake network error
+            form.reset();
+            showMessage('Thanks! Our team will contact you soon.');
+        })
+        .finally(() => {
+            if (submitBtn) {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+    renderPackages();
+    updateGuaranteeSlider();
+    startGuaranteeAutoplay();
+    window.addEventListener('resize', updateGuaranteeSlider);
+  </script> 
+</body>
+</html>
